@@ -20,7 +20,7 @@ class Config:
         self.temperature = float(os.getenv('TEMPERATURE', 0.55))
         self.user_agent = os.getenv('USER_AGENT', "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                                                    "(KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0")
-        self.max_search_results_per_query = int(os.getenv('MAX_SEARCH_RESULTS_PER_QUERY', 5))
+        self.max_search_results_per_query = int(os.getenv('MAX_SEARCH_RESULTS_PER_QUERY', 10))
         self.memory_backend = os.getenv('MEMORY_BACKEND', "local")
         self.total_words = int(os.getenv('TOTAL_WORDS', 1000))
         self.report_format = os.getenv('REPORT_FORMAT', "APA")

@@ -108,9 +108,9 @@ def browse_website(url: str, question: str) -> tuple[str, WebDriver]:
 
     links = scrape_links_with_selenium(driver, url)
 
-    # Limit links to 5
-    if len(links) > 5:
-        links = links[:5]
+    # Limit links to 10
+    if len(links) > 10:
+        links = links[:10]
 
     # write_to_file('research-{0}.txt'.format(url), summary_text + "\nSource Links: {0}\n\n".format(links))
 
