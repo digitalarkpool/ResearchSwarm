@@ -24,15 +24,14 @@ def generate_report_prompt(question, context, report_format="apa", total_words=1
            f' query or task: "{question}" in a detailed report --' \
            " The report should focus on the answer to the query, should be well structured, informative," \
            f" in depth and comprehensive, with facts and numbers if available and a minimum of {total_words} words.\n" \
+           f" Each fact or found insight MUST be cited in the statement making the claim.\n" \
            "You should strive to write the report as long as you can using all relevant and necessary information provided.\n" \
            "You must write the report with markdown syntax.\n " \
            f"Use an unbiased and journalistic tone. \n" \
            "You MUST determine your own concrete and valid opinion based on the given information. Do NOT deter to general and meaningless conclusions.\n" \
-           f"You MUST write ALL used source urls at the end of the report as references.\n" \
+           f"You MUST write ALL used source urls inline where the statements are made, and again at the end of the report as references.\n" \
            f"You MUST write the report in {report_format} format.\n " \
-            f"Cite search results using inline notations. Only cite the most \
-            relevant results that answer the query accurately. Place these citations at the end \
-            of the sentence or paragraph that reference them.\
+            f"Cite search results using inline notations. \
             Use the source URLs to support the conclusions and cite them. \n"\
             f"Please do your best, this is very important to my career. " \
             f"Assume that the current date is {datetime.now().strftime('%B %d, %Y')}"
@@ -53,6 +52,7 @@ def generate_resource_report_prompt(question, context, report_format="apa", tota
            ' explaining how each source can contribute to finding answers to the research question.\n' \
            'Focus on the relevance, reliability, and significance of each source.\n' \
            'Ensure that the report is well-structured, informative, in-depth, and follows Markdown syntax.\n' \
+           'Include all relevant sources, even if it only supports the information.\n' \
            'Include relevant facts, figures, and numbers whenever available.\n' \
            'The report should have a minimum length of 700 words.\n' \
             'You MUST include all relevant source urls.'
@@ -72,7 +72,8 @@ def generate_outline_report_prompt(question, context, report_format="apa", total
            f' for the following question or topic: "{question}". The outline should provide a well-structured framework' \
            ' for the research report, including the main sections, subsections, and key points to be covered.' \
            ' The research report should be detailed, informative, in-depth, and a minimum of 1,200 words.' \
-           ' Use appropriate Markdown syntax to format the outline and ensure readability.'
+           ' Use appropriate Markdown syntax to format the outline and ensure readability.' \
+           ' You MUST include all relevant source urls and use inline notations to cite search results.'
 
 
 def get_report_by_type(report_type):
